@@ -69,6 +69,7 @@
 /dev/logbuffer_maxfg_secondary_monitor                                      u:object_r:logbuffer_device:s0
 /dev/logbuffer_tcpm                                                         u:object_r:logbuffer_device:s0
 /dev/logbuffer_usbpd                                                        u:object_r:logbuffer_device:s0
+/dev/logbuffer_pogo_transport                                               u:object_r:logbuffer_device:s0
 /dev/ttySAC0                                                                u:object_r:tty_device:s0
 /dev/bigwave                                                                u:object_r:video_device:s0
 /dev/watchdog0                                                              u:object_r:watchdog_device:s0
@@ -79,6 +80,7 @@
 /dev/sys/block/bootdevice(/.*)?                                             u:object_r:bootdevice_sysdev:s0
 /dev/socket/chre                                                            u:object_r:chre_socket:s0
 /dev/battery_history                                                        u:object_r:battery_history_device:s0
+/dev/maxfg_history                                                          u:object_r:battery_history_device:s0
 /dev/bbd_pwrstat                                                            u:object_r:power_stats_device:s0
 /dev/edgetpu-soc                                                            u:object_r:edgetpu_device:s0
 /dev/block/sda                                                              u:object_r:sda_block_device:s0
@@ -130,6 +132,7 @@
 /dev/logbuffer_cpif                                                         u:object_r:logbuffer_device:s0
 /dev/logbuffer_max77779fg_monitor                                           u:object_r:logbuffer_device:s0
 /dev/logbuffer_bd                                                           u:object_r:logbuffer_device:s0
+/dev/logbuffer_max77779_fwupdate                                            u:object_r:logbuffer_device:s0
 /dev/lwis-be-core                                                           u:object_r:lwis_device:s0
 /dev/lwis-dpm                                                               u:object_r:lwis_device:s0
 /dev/lwis-gdc0                                                              u:object_r:lwis_device:s0
@@ -170,3 +173,4 @@
 /data/vendor/bluetooth(/.*)?                                                u:object_r:vendor_bt_data_file:s0
 /data/vendor/chre(/.*)?                                                     u:object_r:chre_data_file:s0
 /data/vendor/misc/qti_fp(/.*)?                                              u:object_r:vendor_fingerprint_data_file:s0
+/data/vendor/fingerprint(/.*)?                                              u:object_r:fingerprint_vendor_data_file:s0
