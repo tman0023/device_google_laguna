@@ -16,8 +16,8 @@
 include build/make/target/board/BoardConfigMainlineCommon.mk
 include build/make/target/board/BoardConfigPixelCommon.mk
 
-# Should be uncommented after fixing vndk-sp violation is fixed.
-PRODUCT_FULL_TREBLE_OVERRIDE := true
+# Include settings for 16k page size kernel if enabled.
+include device/google/zumapro/BoardConfig-16k-common.mk
 
 # HACK : To fix up after bring up multimedia devices.
 TARGET_SOC := zumapro
@@ -50,8 +50,6 @@ BOARD_BOOTCONFIG += androidboot.boot_devices=13200000.ufs
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
   BOARD_KERNEL_CMDLINE += kunit.enable=1
 endif
-
-BOARD_KERNEL_CMDLINE += ehld.noehld=1
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true

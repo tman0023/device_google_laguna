@@ -219,6 +219,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.hdcp_checking=drm-only
 
 USE_LASSEN_OEMHOOK := true
+
+# Pixel Logger
+include hardware/google/pixel/PixelLogger/PixelLogger.mk
+
 ifneq ($(BOARD_WITHOUT_RADIO),true)
 # The "power-anomaly-sitril" is added into PRODUCT_SOONG_NAMESPACES when
 # $(USE_LASSEN_OEMHOOK) is true and $(BOARD_WITHOUT_RADIO) is not true.
@@ -274,9 +278,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.modem.extensive_logging_enabled=false
 
-# Pixel Logger
-include hardware/google/pixel/PixelLogger/PixelLogger.mk
-
 # Use Lassen specifc Shared Modem Platform
 SHARED_MODEM_PLATFORM_VENDOR := lassen
 
@@ -298,6 +299,8 @@ USE_GOOGLE_DIALER := true
 USE_GOOGLE_CARRIER_SETTINGS := true
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.uses_google_dialer_carrier_settings=1
+# GoogleDialer in PDK build with "USES_GOOGLE_DIALER_CARRIER_SETTINGS=true"
+PRODUCT_SOONG_NAMESPACES += vendor/google_devices/zumapro/proprietary/GoogleDialer
 endif
 
 ifeq ($(USES_GOOGLE_PREBUILT_MODEM_SVC),true)
@@ -397,6 +400,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 # GRAPHICS - GPU (end)
 # ####################
 
+PRODUCT_SHIPPING_API_LEVEL := $(SHIPPING_API_LEVEL)
+
 # Device Manifest, Device Compatibility Matrix for Treble
 DEVICE_MANIFEST_FILE := \
 	device/google/zumapro/manifest.xml
@@ -421,8 +426,6 @@ DEVICE_MATRIX_FILE := \
 	device/google/zumapro/compatibility_matrix.xml
 
 DEVICE_PACKAGE_OVERLAYS += device/google/zumapro/overlay
-
-PRODUCT_SHIPPING_API_LEVEL := 34
 
 # RKP VINTF
 -include vendor/google_nos/host/android/hals/keymaster/aidl/strongbox/RemotelyProvisionedComponent-citadel.mk
@@ -456,7 +459,10 @@ PRODUCT_COPY_FILES += \
 	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zuma.rc
 
 # Fstab files
-ifeq (ext4,$(TARGET_RW_FILE_SYSTEM_TYPE))
+ifeq (true,$(TARGET_BOOTS_16K))
+PRODUCT_SOONG_NAMESPACES += \
+        device/google/zumapro/conf/fs-16kb
+else ifeq (ext4,$(TARGET_RW_FILE_SYSTEM_TYPE))
 PRODUCT_SOONG_NAMESPACES += \
         device/google/zumapro/conf/ext4
 else
@@ -518,8 +524,6 @@ PRODUCT_COPY_FILES += \
 
 ## Enable the CHRE Daemon
 CHRE_USF_DAEMON_ENABLED := false
-PRODUCT_PACKAGES += \
-	preloaded_nanoapps.json
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
