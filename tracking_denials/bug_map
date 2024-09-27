@@ -6,8 +6,6 @@ grilservice_app default_android_service service_manager b/366116096
 hal_bluetooth_btlinux vendor_aoc_prop file b/353262026
 hal_gnss_default vendor_gps_prop file b/318310869
 hal_power_default hal_power_default capability b/350830411
-hal_wlcservice default_prop file b/350830657
-hal_wlcservice default_prop file b/350830879
 incidentd incidentd anon_inode b/322917075
 kernel sepolicy_file file b/353418189
 kernel system_bootstrap_lib_file dir b/353418189
