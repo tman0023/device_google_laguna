@@ -26,5 +26,3 @@ shell sysfs_net file b/338347525
 spad spad unix_stream_socket b/309550905
 swcnd swcnd unix_stream_socket b/309551062
 system_suspend sysfs_touch_gti dir b/350830429
-system_suspend sysfs_touch_gti dir b/350830680
-system_suspend sysfs_touch_gti dir b/350830796
