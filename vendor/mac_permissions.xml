@@ -24,4 +24,7 @@
     <signer signature="@EUICCSUPPORTPIXEL" >
         <seinfo value="EuiccSupportPixel" />
     </signer>
+    <signer signature="@CAMERAPROPSETTER" >
+      <seinfo value="CameraPropsetter" />
+    </signer>
 </policy>
