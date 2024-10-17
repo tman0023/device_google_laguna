@@ -8,3 +8,6 @@ userdebug_or_eng(`
     set_prop(vendor_init, vendor_imssvc_prop)
 ')
 
+# Allow vendor_init to read ro.vendor.persist.status
+# to process init.rc actions
+set_prop(vendor_init, vendor_persist_prop)
