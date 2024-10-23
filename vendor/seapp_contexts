@@ -2,4 +2,4 @@
 user=_app isPrivApp=true seinfo=EuiccSupportPixel name=com.google.euiccpixel domain=euiccpixel_app type=app_data_file levelFrom=all
 
 # Camera propsetter app
-user=_app seinfo=CameraPropsetter name=com.google.android.apps.camera.tools.propsetter domain=camera_propsetter_app type=app_data_file levelFrom=all
+user=_app seinfo=CameraEng name=com.google.android.apps.camera.tools.propsetter domain=camera_propsetter_app type=app_data_file levelFrom=all
