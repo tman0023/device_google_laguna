@@ -3,6 +3,7 @@ dump_display sysfs file b/322917055
 dump_modem sscoredump_vendor_data_coredump_file dir b/361726331
 dump_modem sscoredump_vendor_data_logcat_file dir b/361726331
 grilservice_app default_android_service service_manager b/366116096
+grilservice_app twoshay binder b/375564898
 hal_gnss_default vendor_gps_prop file b/318310869
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
@@ -17,6 +18,7 @@ modem_svc_sit modem_ml_svc_sit file b/360060705
 modem_svc_sit radio_vendor_data_file sock_file b/369539798
 pixelstats_vendor block_device dir b/369539751
 pixelstats_vendor block_device dir b/369540515
+pixelstats_vendor sysfs file b/375564818
 ramdump ramdump capability b/369475712
 sctd sctd tcp_socket b/309550514
 sctd swcnd unix_stream_socket b/309550514
@@ -24,4 +26,7 @@ sctd vendor_persist_config_default_prop file b/309550514
 shell sysfs_net file b/338347525
 spad spad unix_stream_socket b/309550905
 swcnd swcnd unix_stream_socket b/309551062
+system_suspend sysfs dir b/375563932
+system_suspend sysfs_touch dir b/375563932
 system_suspend sysfs_touch_gti dir b/350830429
+systemui_app system_data_file dir b/375564360
