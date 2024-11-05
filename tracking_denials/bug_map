@@ -19,6 +19,9 @@ modem_svc_sit radio_vendor_data_file sock_file b/369539798
 pixelstats_vendor block_device dir b/369539751
 pixelstats_vendor block_device dir b/369540515
 pixelstats_vendor sysfs file b/375564818
+platform_app vendor_fw_file dir b/377412254
+platform_app vendor_modem_prop property_service b/377412254
+platform_app vendor_rild_prop file b/377412254
 ramdump ramdump capability b/369475712
 sctd sctd tcp_socket b/309550514
 sctd swcnd unix_stream_socket b/309550514
