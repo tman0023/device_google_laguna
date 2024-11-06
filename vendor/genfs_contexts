@@ -29,6 +29,8 @@ genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-003b/power_supply     
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0057/power_supply             u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0057/registers_dump           u:object_r:sysfs_power_dump:s0
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0050/eeprom                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-005b/power_supply             u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-005b/registers_dump           u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /class/power_supply/wireless/device/version                              u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /class/power_supply/wireless/device/status                               u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /class/power_supply/wireless/device/fw_rev                               u:object_r:sysfs_batteryinfo:s0
@@ -101,6 +103,9 @@ genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0057/power_supply/dc-m
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-006e/power_supply/dc-mains/wakeup                               u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/10cb0000.hsi2c/i2c-11/11-0025/power_supply/usb/power/wakeup                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/wakeup                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.7.auto/usb1                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.7.auto/usb2                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.7.auto/wakeup                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.8.auto/usb1                                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.8.auto/usb2                                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11210000.usb/11210000.dwc3/xhci-hcd-exynos.8.auto/wakeup                                 u:object_r:sysfs_wakeup:s0
@@ -365,6 +370,8 @@ genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/refresh_ctr
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te_option                            u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te_rate_hz                           u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/time_in_state                        u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/frame_interval                       u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/expected_present_time                u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19470000.drmdecon/dqe0/atc                                               u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19470000.drmdecon/hibernation                                            u:object_r:sysfs_display:s0
 genfscon sysfs /module/drm/parameters/vblankoffdelay                                                      u:object_r:sysfs_display:s0
@@ -375,19 +382,34 @@ genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/error_count
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport/dp_hotplug_error_code                     u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te2_rate_hz                          u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te2_option                           u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/frame_rate                           u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/power_mode                           u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/link_negotiation_failures           u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/edid_read_failures                  u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/dpcd_read_failures                  u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/fec_dsc_not_supported               u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/fec_dsc_supported                   u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/edid_invalid_failures               u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/sink_count_invalid_failures         u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/link_unstable_failures              u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_other                       u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_1366_768                    u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_1440_900                    u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_1600_900                    u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_1920_1080                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_2560_1080                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_2560_1440                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_3440_1440                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_3840_2160                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_5120_2880                   u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport-stats/max_res_7680_4320                   u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp2_success_count                                                 u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp2_fallback_count                                                u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp2_fail_count                                                    u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp1_success_count                                                 u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp1_fail_count                                                    u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/hdcp/hdcp0_count                                                         u:object_r:sysfs_display:s0
-
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/backlight/panel0-backlight/local_hbm_delay_frames  u:object_r:sysfs_lhbm:s0
 
 # ACPM
 genfscon sysfs /devices/platform/acpm_stats                                                            u:object_r:sysfs_acpm_stats:s0
@@ -462,3 +484,7 @@ genfscon sysfs /devices/platform/ete7    u:object_r:sysfs_devices_cs_etm:s0
 # Privacy LED
 genfscon sysfs /devices/platform/pwmleds/leds/green/brightness            u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/pwmleds/leds/green/max_brightness        u:object_r:sysfs_leds:s0
+
+# CPU
+genfscon sysfs /kernel/metrics/cpuidle_histogram/cpuidle_histogram        u:object_r:sysfs_cpu:s0
+genfscon sysfs /kernel/metrics/cpuidle_histogram/cpucluster_histogram     u:object_r:sysfs_cpu:s0
