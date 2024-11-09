@@ -6,6 +6,7 @@ dumpstate system_data_file dir b/377787445
 grilservice_app default_android_service service_manager b/366116096
 grilservice_app twoshay binder b/375564898
 hal_gnss_default vendor_gps_prop file b/318310869
+hal_gnss_pixel vendor_gps_file file b/378004800
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 kernel sepolicy_file file b/353418189
