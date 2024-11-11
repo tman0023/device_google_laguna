@@ -9,12 +9,7 @@
 /vendor/lib64/arm\.mali\.platform-V1-ndk\.so                                u:object_r:same_process_hal_file:s0
 
 # Devices
-/dev/logbuffer_maxq                                                         u:object_r:logbuffer_device:s0
-/dev/logbuffer_maxfg                                                        u:object_r:logbuffer_device:s0
-/dev/logbuffer_pca9468_tcpm                                                 u:object_r:logbuffer_device:s0
-/dev/logbuffer_maxfg_monitor                                                u:object_r:logbuffer_device:s0
 /dev/logbuffer_wc68                                                         u:object_r:logbuffer_device:s0
-/dev/logbuffer_ln8411                                                       u:object_r:logbuffer_device:s0
 /dev/lwis-csi                                                               u:object_r:lwis_device:s0
 /dev/lwis-eeprom-gt24p64e-imentet                                           u:object_r:lwis_device:s0
 /dev/lwis-eeprom-smaug-buraq                                                u:object_r:lwis_device:s0

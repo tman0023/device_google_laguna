@@ -67,6 +67,7 @@
 /dev/logbuffer_maxfg_secondary                                              u:object_r:logbuffer_device:s0
 /dev/logbuffer_maxfg_base_monitor                                           u:object_r:logbuffer_device:s0
 /dev/logbuffer_maxfg_secondary_monitor                                      u:object_r:logbuffer_device:s0
+/dev/logbuffer_dual_batt                                                    u:object_r:logbuffer_device:s0
 /dev/logbuffer_tcpm                                                         u:object_r:logbuffer_device:s0
 /dev/logbuffer_usbpd                                                        u:object_r:logbuffer_device:s0
 /dev/logbuffer_pogo_transport                                               u:object_r:logbuffer_device:s0
@@ -128,6 +129,8 @@
 /dev/logbuffer_rtx                                                          u:object_r:logbuffer_device:s0
 /dev/logbuffer_max77779fg                                                   u:object_r:logbuffer_device:s0
 /dev/logbuffer_pca9468                                                      u:object_r:logbuffer_device:s0
+/dev/logbuffer_ln8411                                                       u:object_r:logbuffer_device:s0
+/dev/logbuffer_dc_mains                                                     u:object_r:logbuffer_device:s0
 /dev/logbuffer_cpm                                                          u:object_r:logbuffer_device:s0
 /dev/logbuffer_cpif                                                         u:object_r:logbuffer_device:s0
 /dev/logbuffer_max77779fg_monitor                                           u:object_r:logbuffer_device:s0
