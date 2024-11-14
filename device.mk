@@ -613,6 +613,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
+ifneq (,$(filter ripcurrentpro, $(TARGET_PRODUCT)))
+	include device/google/gs-common/touch/gti/gti.mk
+endif
+
 # Sensors
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -1229,6 +1233,10 @@ PRODUCT_PACKAGES += \
 # pKVM
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 PRODUCT_BUILD_PVMFW_IMAGE := true
+ifeq ($(RELEASE_AVF_ENABLE_LLPVM_CHANGES),true)
+	# Set the environment variable to enable the Secretkeeper HAL service.
+	SECRETKEEPER_ENABLED := true
+endif
 
 # Enable to build standalone vendor_kernel_boot image.
 PRODUCT_BUILD_VENDOR_KERNEL_BOOT_IMAGE := true
