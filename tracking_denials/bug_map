@@ -9,14 +9,11 @@ hal_gnss_default vendor_gps_prop file b/318310869
 hal_gnss_pixel vendor_gps_file file b/378004800
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
+init init capability b/379206528
 kernel sepolicy_file file b/353418189
 kernel system_bootstrap_lib_file dir b/353418189
 kernel system_bootstrap_lib_file file b/353418189
 kernel system_dlkm_file dir b/353418189
-modem_svc_sit hal_radioext_default process b/368187536
-modem_svc_sit hal_radioext_default process b/368188020
-modem_svc_sit modem_ml_svc_sit file b/360060680
-modem_svc_sit modem_ml_svc_sit file b/360060705
 modem_svc_sit radio_vendor_data_file sock_file b/369539798
 pixelstats_vendor block_device dir b/369539751
 pixelstats_vendor block_device dir b/369540515
@@ -35,3 +32,4 @@ system_suspend sysfs dir b/375563932
 system_suspend sysfs_touch dir b/375563932
 system_suspend sysfs_touch_gti dir b/350830429
 systemui_app system_data_file dir b/375564360
+zygote zygote capability b/379206406
