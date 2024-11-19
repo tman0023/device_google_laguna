@@ -1,4 +1,5 @@
 
+bluetooth audio_config_prop file b/379245474
 dump_display sysfs file b/322917055
 dump_modem sscoredump_vendor_data_coredump_file dir b/361726331
 dump_modem sscoredump_vendor_data_logcat_file dir b/361726331
@@ -7,6 +8,7 @@ grilservice_app default_android_service service_manager b/366116096
 grilservice_app twoshay binder b/375564898
 hal_gnss_default vendor_gps_prop file b/318310869
 hal_gnss_pixel vendor_gps_file file b/378004800
+hal_graphics_composer_default sysfs file b/379245673
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 init init capability b/379206528
@@ -21,6 +23,8 @@ pixelstats_vendor sysfs file b/375564818
 platform_app vendor_fw_file dir b/377412254
 platform_app vendor_modem_prop property_service b/377412254
 platform_app vendor_rild_prop file b/377412254
+priv_app audio_config_prop file b/379245788
+radio audio_config_prop file b/379244519
 ramdump ramdump capability b/369475712
 sctd sctd tcp_socket b/309550514
 sctd swcnd unix_stream_socket b/309550514
@@ -32,4 +36,5 @@ system_suspend sysfs dir b/375563932
 system_suspend sysfs_touch dir b/375563932
 system_suspend sysfs_touch_gti dir b/350830429
 systemui_app system_data_file dir b/375564360
+untrusted_app audio_config_prop file b/379245853
 zygote zygote capability b/379206406
