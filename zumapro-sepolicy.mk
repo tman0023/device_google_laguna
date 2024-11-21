@@ -1,6 +1,6 @@
 # sepolicy that are shared among devices using zumapro
 BOARD_SEPOLICY_DIRS += device/google/zumapro-sepolicy/vendor
-BOARD_SEPOLICY_DIRS += device/google/zumapro-sepolicy/radio
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/zumapro-sepolicy/radio
 PRODUCT_PRIVATE_SEPOLICY_DIRS += device/google/zumapro-sepolicy/radio/private
 
 # unresolved SELinux error log with bug tracking
