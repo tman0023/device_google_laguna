@@ -1,5 +1,6 @@
 
 bluetooth audio_config_prop file b/379245474
+bpfloader fs_bpf dir b/380989493
 dump_display sysfs file b/322917055
 dump_modem sscoredump_vendor_data_coredump_file dir b/361726331
 dump_modem sscoredump_vendor_data_logcat_file dir b/361726331
