@@ -24,4 +24,7 @@
     <signer signature="@MDS" >
         <seinfo value="mds" />
     </signer>
+    <signer signature="@PMS" >
+        <seinfo value="pms" />
+    </signer>
 </policy>
