@@ -7,6 +7,7 @@ dump_modem sscoredump_vendor_data_coredump_file dir b/361726331
 dump_modem sscoredump_vendor_data_logcat_file dir b/361726331
 dumpstate system_data_file dir b/377787445
 grilservice_app twoshay binder b/375564898
+hal_camera_default aconfig_storage_metadata_file dir b/383013471
 hal_gnss_default vendor_gps_prop file b/318310869
 hal_gnss_pixel vendor_gps_file file b/378004800
 hal_graphics_composer_default sysfs file b/379245673
