@@ -39,4 +39,5 @@ system_suspend sysfs_touch dir b/375563932
 system_suspend sysfs_touch_gti dir b/350830429
 systemui_app system_data_file dir b/375564360
 untrusted_app audio_config_prop file b/379245853
+zygote aconfig_storage_metadata_file dir b/383949166
 zygote zygote capability b/379206406
