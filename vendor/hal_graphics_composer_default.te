@@ -26,7 +26,7 @@ add_service(hal_graphics_composer_default, hal_pixel_display_service)
 # allow HWC/libdisplaycolor to read calibration data
 allow hal_graphics_composer_default mnt_vendor_file:dir search;
 allow hal_graphics_composer_default persist_file:dir search;
-allow hal_graphics_composer_default persist_display_file:file r_file_perms;
+allow hal_graphics_composer_default persist_display_file:file rw_file_perms;
 allow hal_graphics_composer_default persist_display_file:dir search;
 
 # allow HWC to get/set vendor_display_prop
