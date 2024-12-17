@@ -28,12 +28,7 @@ platform_app vendor_rild_prop file b/377412254
 priv_app audio_config_prop file b/379245788
 radio audio_config_prop file b/379244519
 ramdump ramdump capability b/369475712
-sctd sctd tcp_socket b/309550514
-sctd swcnd unix_stream_socket b/309550514
-sctd vendor_persist_config_default_prop file b/309550514
 shell sysfs_net file b/338347525
-spad spad unix_stream_socket b/309550905
-swcnd swcnd unix_stream_socket b/309551062
 system_suspend sysfs dir b/375563932
 system_suspend sysfs_touch dir b/375563932
 system_suspend sysfs_touch_gti dir b/350830429
