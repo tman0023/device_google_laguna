@@ -26,6 +26,7 @@ platform_app vendor_rild_prop file b/377412254
 priv_app audio_config_prop file b/379245788
 radio audio_config_prop file b/379244519
 ramdump ramdump capability b/369475712
+servicemanager modem_logging_control binder b/384376420
 shell sysfs_net file b/338347525
 system_suspend sysfs dir b/375563932
 system_suspend sysfs_touch dir b/375563932
