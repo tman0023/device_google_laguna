@@ -12,6 +12,7 @@ hal_graphics_composer_default sysfs file b/379245673
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 init init capability b/379206528
+insmod-sh vendor_edgetpu_debugfs dir b/385858548
 kernel sepolicy_file file b/353418189
 kernel system_bootstrap_lib_file dir b/353418189
 kernel system_bootstrap_lib_file file b/353418189
@@ -26,6 +27,7 @@ platform_app vendor_rild_prop file b/377412254
 priv_app audio_config_prop file b/379245788
 radio audio_config_prop file b/379244519
 ramdump ramdump capability b/369475712
+ramdump_app privapp_data_file lnk_file b/385858779
 servicemanager modem_logging_control binder b/384376420
 shell sysfs_net file b/338347525
 system_suspend sysfs dir b/375563932
