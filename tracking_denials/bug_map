@@ -8,7 +8,6 @@ dump_modem sscoredump_vendor_data_logcat_file dir b/361726331
 dumpstate system_data_file dir b/377787445
 grilservice_app twoshay binder b/375564898
 hal_camera_default aconfig_storage_metadata_file dir b/383013471
-hal_graphics_composer_default sysfs file b/379245673
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 init init capability b/379206528
