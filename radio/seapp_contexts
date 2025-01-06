@@ -34,4 +34,4 @@ user=system seinfo=platform name=com.google.android.CatEngine domain=cat_engine_
 user=_app isPrivApp=true seinfo=platform name=com.samsung.slsi.telephony.satelliteservice domain=vendor_satellite_service levelFrom=all
 
 # Domain for pixel_modem_app
-user=_app isPrivApp=true seinfo=platform name=com.google.android.modem.pms domain=pixel_modem_app levelFrom=all
+user=_app isPrivApp=true seinfo=pms name=com.google.android.modem.pms domain=pixel_modem_app levelFrom=all
