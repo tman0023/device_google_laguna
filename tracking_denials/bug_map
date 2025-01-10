@@ -11,6 +11,7 @@ hal_camera_default aconfig_storage_metadata_file dir b/383013471
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 init init capability b/379206528
+insmod-sh kmsg_device chr_file b/388949710
 insmod-sh vendor_edgetpu_debugfs dir b/385858548
 kernel sepolicy_file file b/353418189
 kernel system_bootstrap_lib_file dir b/353418189
