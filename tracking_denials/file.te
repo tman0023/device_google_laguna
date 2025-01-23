@@ -9,6 +9,3 @@ type sysfs_chargelevel, sysfs_type, fs_type;
 # mount FS
 allow proc_vendor_sched proc:filesystem associate;
 
-# Faceauth
-type sysfs_faceauth_rawimage_heap, sysfs_type, fs_type;
-
