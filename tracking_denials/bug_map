@@ -11,6 +11,7 @@ hal_camera_default aconfig_storage_metadata_file dir b/383013471
 hal_power_default hal_power_default capability b/350830411
 incidentd incidentd anon_inode b/322917075
 init init capability b/379206528
+insmod-sh kmsg_device chr_file b/388949710
 insmod-sh vendor_edgetpu_debugfs dir b/385858548
 kernel sepolicy_file file b/353418189
 kernel system_bootstrap_lib_file dir b/353418189
@@ -27,7 +28,6 @@ priv_app audio_config_prop file b/379245788
 radio audio_config_prop file b/379244519
 ramdump ramdump capability b/369475712
 ramdump_app default_prop file b/386149336
-ramdump_app privapp_data_file lnk_file b/385858779
 servicemanager modem_logging_control binder b/384376420
 shell sysfs_net file b/338347525
 system_suspend sysfs dir b/375563932
