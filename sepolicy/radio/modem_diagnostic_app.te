@@ -1,3 +1,4 @@
+# Selinux rule for ModemDiagnosticService (MDS) app
 type modem_diagnostic_app, domain;
 
 app_domain(modem_diagnostic_app)
@@ -10,6 +11,7 @@ userdebug_or_eng(`
   allow modem_diagnostic_app sysfs_modem_state:file r_file_perms;
 
   hal_client_domain(modem_diagnostic_app, hal_power_stats);
+  hal_client_domain(modem_diagnostic_app, hal_shared_modem_platform);
 
   allow modem_diagnostic_app hal_vendor_radio_external_service:service_manager find;
   allow modem_diagnostic_app hal_exynos_rild_hwservice:hwservice_manager find;

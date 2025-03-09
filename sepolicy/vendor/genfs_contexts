@@ -31,6 +31,8 @@ genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0057/registers_dump   
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-0050/eeprom                   u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-005b/power_supply             u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/10ca0000.hsi2c/i2c-10/10-005b/registers_dump           u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/10cb0000.hsi2c/i2c-11/11-005e/power_supply             u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/10cb0000.hsi2c/i2c-11/11-005e/registers_dump           u:object_r:sysfs_power_dump:s0
 genfscon sysfs /class/power_supply/wireless/device/version                              u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /class/power_supply/wireless/device/status                               u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /class/power_supply/wireless/device/fw_rev                               u:object_r:sysfs_batteryinfo:s0
@@ -148,6 +150,8 @@ genfscon sysfs /devices/platform/sound-aoc/wakeup                               
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/wakeup/                                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/19450000.drmdsim/19450000.drmdsim.0/wakeup/                                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/gnssif/wakeup                                                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/odm/odm:fps_touch_handler/power/wakeup                                                   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/odm/odm:fps_touch_handler/wakeup                                                         u:object_r:sysfs_wakeup:s0
 
 # WiFi
 genfscon sysfs /wifi                                                           u:object_r:sysfs_wifi:s0
@@ -370,13 +374,14 @@ genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/refresh_ctr
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te_option                            u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/te_rate_hz                           u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/time_in_state                        u:object_r:sysfs_display:s0
-genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/frame_interval                       u:object_r:sysfs_display:s0
-genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/expected_present_time                u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/frame_interval_ns                    u:object_r:sysfs_display:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/expected_present_time_ns             u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19470000.drmdecon/dqe0/atc                                               u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19470000.drmdecon/hibernation                                            u:object_r:sysfs_display:s0
 genfscon sysfs /module/drm/parameters/vblankoffdelay                                                      u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/exynos-drm/tui_status                                                    u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/backlight/panel0-backlight/als_table u:object_r:sysfs_write_leds:s0
+genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/color_data                           u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/error_count_te                       u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/19440000.drmdsim/19440000.drmdsim.0/error_count_unknown                  u:object_r:sysfs_display:s0
 genfscon sysfs /devices/platform/110f0000.drmdp/drm-displayport/dp_hotplug_error_code                     u:object_r:sysfs_display:s0
@@ -464,6 +469,9 @@ genfscon sysfs /devices/platform/17000000.aoc/control/memory_exception      u:ob
 genfscon sysfs /devices/platform/17000000.aoc/control/memory_votes_a32      u:object_r:sysfs_aoc_dumpstate:s0
 genfscon sysfs /devices/platform/17000000.aoc/control/memory_votes_ff1      u:object_r:sysfs_aoc_dumpstate:s0
 genfscon sysfs /devices/platform/17000000.aoc/notify_timeout_aoc_status     u:object_r:sysfs_aoc_notifytimeout:s0
+genfscon sysfs /devices/platform/17000000.aoc/control/udfps_set_clock_source    u:object_r:sysfs_aoc_udfps:s0
+genfscon sysfs /devices/platform/17000000.aoc/control/udfps_get_osc_freq        u:object_r:sysfs_aoc_udfps:s0
+genfscon sysfs /devices/platform/17000000.aoc/control/udfps_get_disp_freq       u:object_r:sysfs_aoc_udfps:s0
 
 # OTA
 genfscon sysfs /devices/platform/13200000.ufs/pixel/boot_lun_enabled           u:object_r:sysfs_ota:s0
@@ -488,3 +496,6 @@ genfscon sysfs /devices/platform/pwmleds/leds/green/max_brightness        u:obje
 # CPU
 genfscon sysfs /kernel/metrics/cpuidle_histogram/cpuidle_histogram        u:object_r:sysfs_cpu:s0
 genfscon sysfs /kernel/metrics/cpuidle_histogram/cpucluster_histogram     u:object_r:sysfs_cpu:s0
+
+# Bluetooth
+genfscon sysfs /devices/platform/155d0000.serial/uart_dbg     u:object_r:sysfs_bt_uart:s0
