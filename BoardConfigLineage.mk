@@ -7,8 +7,14 @@
 # Manifests
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE += \
-    device/google/zumapro/android.hardware.security.rkp-service.citadel.xml \
+    device/google/zumapro/android.hardware.security.rkp-service.citadel.xml
+ifeq ($(PRODUCT_SHIPPING_API_LEVEL),35)
+DEVICE_MANIFEST_FILE += \
+    device/google/zumapro/manifest_radio_ds_202404.xml
+else
+DEVICE_MANIFEST_FILE += \
     device/google/zumapro/manifest_radio_ds.xml
+endif
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
     device/google/zumapro/aam_compatibility_matrix.xml \
     device/google/zumapro/location/device_framework_matrix_product.xml
