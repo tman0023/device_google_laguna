@@ -16,7 +16,6 @@ DEVICE_MANIFEST_FILE += \
     device/google/zumapro/manifest_radio_ds.xml
 endif
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
-    device/google/zumapro/aam_compatibility_matrix.xml \
     device/google/zumapro/location/device_framework_matrix_product.xml
 
 # Partitions
