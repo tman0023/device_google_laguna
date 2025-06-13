@@ -192,7 +192,7 @@ on post-fs-data
     chmod 0660 /dev/ispolin_ranging
 
     # Audio dump and debug
-    mkdir /data/vendor/audio 0770 audio audio
+    mkdir /data/vendor/audio 0770 system audio
 
     # Create the directories for Darwinn HAL.
     mkdir /data/vendor/hal_neuralnetworks_darwinn 0770 system system
@@ -313,6 +313,7 @@ on fs
     chown system system /sys/devices/platform/exynos-drm/primary-panel/frame_rate
     chown system system /sys/devices/platform/exynos-drm/primary-panel/frame_interval_ns
     chown system system /sys/devices/platform/exynos-drm/primary-panel/expected_present_time_ns
+    chown system system /sys/devices/platform/exynos-drm/displayport/drm-displayport/hdcp_negotiation
     chown system system /sys/module/drm/parameters/vblankoffdelay
     chown system system /sys/module/drm/parameters/debug
     chown system system /sys/class/dqe0/atc/ambient_light
@@ -569,6 +570,8 @@ on property:vendor.thermal.link_ready=1
     chown system system /dev/thermal/tz-by-name/btmspkr_therm/trip_point_0_hyst
     chown system system /dev/thermal/tz-by-name/rfpa_therm/trip_point_0_temp
     chown system system /dev/thermal/tz-by-name/rfpa_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/soc/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/soc/trip_point_0_hyst
     chown system system /dev/thermal/cdev-by-name/thermal-cpufreq-0/user_vote
     chown system system /dev/thermal/cdev-by-name/thermal-cpufreq-1/user_vote
     chown system system /dev/thermal/cdev-by-name/thermal-cpufreq-2/user_vote
@@ -649,3 +652,10 @@ on property:vendor.all.modules.ready=1
     chown system system /sys/bus/i2c/devices/9-0043/default/redc_comp_enable
     chown system system /sys/bus/i2c/devices/9-0043/default/delay_before_stop_playback_us
     enable vendor.vibrator.cs40l26
+
+# Battery health
+on property:persist.vendor.pulsar.opt_out=1
+    write /sys/class/power_supply/battery/aacp_opt_out 1
+
+on property:persist.vendor.pulsar.opt_out=0
+    write /sys/class/power_supply/battery/aacp_opt_out 0
