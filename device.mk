@@ -31,7 +31,7 @@ include device/google/gs-common/pixel_metrics/pixel_metrics.mk
 include device/google/gs-common/soc/freq.mk
 include device/google/gs-common/gps/dump/log.mk
 include device/google/gs-common/bcmbt/dump/dumplog.mk
-include device/google/gs-common/display/dump.mk
+include device/google/gs-common/display/dump_exynos_display.mk
 include device/google/gs-common/display_logbuffer/dump.mk
 include device/google/gs-common/gxp/gxp.mk
 include device/google/gs-common/camera/dump.mk
@@ -45,6 +45,7 @@ include device/google/gs-common/bootctrl/bootctrl_aidl.mk
 include device/google/gs-common/betterbug/betterbug.mk
 include device/google/gs-common/recorder/recorder.mk
 include device/google/gs-common/fingerprint/fingerprint.mk
+include device/google/gs-common/16kb/16kb.mk
 
 include device/google/zumapro/dumpstate/item.mk
 
@@ -177,30 +178,30 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # MAJOR_CLASS: 0x42 -> 66 (Phone)
 # MINOR_CLASS: 0x0C -> 12 (Smart Phone)
 PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.device.class_of_device=90,66,12
+    bluetooth.device.class_of_device?=90,66,12
 
 # Set supported Bluetooth profiles to enabled
 PRODUCT_PRODUCT_PROPERTIES += \
-	bluetooth.profile.asha.central.enabled=true \
-	bluetooth.profile.a2dp.source.enabled=true \
-	bluetooth.profile.avrcp.target.enabled=true \
-	bluetooth.profile.bap.unicast.client.enabled=true \
-	bluetooth.profile.bas.client.enabled=true \
-	bluetooth.profile.csip.set_coordinator.enabled=true \
-	bluetooth.profile.gatt.enabled=true \
-	bluetooth.profile.hap.client.enabled=true \
-	bluetooth.profile.hfp.ag.enabled=true \
-	bluetooth.profile.hid.device.enabled=true \
-	bluetooth.profile.hid.host.enabled=true \
-	bluetooth.profile.map.server.enabled=true \
-	bluetooth.profile.mcp.server.enabled=true \
-	bluetooth.profile.opp.enabled=true \
-	bluetooth.profile.pan.nap.enabled=true \
-	bluetooth.profile.pan.panu.enabled=true \
-	bluetooth.profile.pbap.server.enabled=true \
-	bluetooth.profile.sap.server.enabled=true \
-	bluetooth.profile.ccp.server.enabled=true \
-	bluetooth.profile.vcp.controller.enabled=true
+	bluetooth.profile.asha.central.enabled?=true \
+	bluetooth.profile.a2dp.source.enabled?=true \
+	bluetooth.profile.avrcp.target.enabled?=true \
+	bluetooth.profile.bap.unicast.client.enabled?=true \
+	bluetooth.profile.bas.client.enabled?=true \
+	bluetooth.profile.csip.set_coordinator.enabled?=true \
+	bluetooth.profile.gatt.enabled?=true \
+	bluetooth.profile.hap.client.enabled?=true \
+	bluetooth.profile.hfp.ag.enabled?=true \
+	bluetooth.profile.hid.device.enabled?=true \
+	bluetooth.profile.hid.host.enabled?=true \
+	bluetooth.profile.map.server.enabled?=true \
+	bluetooth.profile.mcp.server.enabled?=true \
+	bluetooth.profile.opp.enabled?=true \
+	bluetooth.profile.pan.nap.enabled?=true \
+	bluetooth.profile.pan.panu.enabled?=true \
+	bluetooth.profile.pbap.server.enabled?=true \
+	bluetooth.profile.sap.server.enabled?=true \
+	bluetooth.profile.ccp.server.enabled?=true \
+	bluetooth.profile.vcp.controller.enabled?=true
 
 # Override default HCI command timeout value for BT stack
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -220,6 +221,10 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.usb.displayport.enabled=1
 endif
+
+# Enable Settings 2-pane optimization for devices supporting display ports.
+PRODUCT_SYSTEM_PROPERTIES += \
+        persist.settings.large_screen_opt_for_dp.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.hdcp_checking=drm-only
@@ -310,6 +315,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.uses_google_dialer_carrier_settings=1
 # GoogleDialer in PDK build with "USES_GOOGLE_DIALER_CARRIER_SETTINGS=true"
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/zumapro/proprietary/GoogleDialer
+
+# Use prebuilt PixelImsMediaFramework.jar for PDK build
+PRODUCT_SOONG_NAMESPACES += vendor/google_devices/gs-common/prebuilts/ImsMedia
 endif
 
 ifeq ($(USES_GOOGLE_PREBUILT_MODEM_SVC),true)
@@ -406,8 +414,8 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
 	frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
 	frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
-	frameworks/native/data/etc/android.software.vulkan.deqp.level-2024-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
-	frameworks/native/data/etc/android.software.opengles.deqp.level-2024-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml
+	frameworks/native/data/etc/android.software.vulkan.deqp.level-2025-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+	frameworks/native/data/etc/android.software.opengles.deqp.level-2025-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml
 
 #endif
 
@@ -491,7 +499,6 @@ PRODUCT_COPY_FILES += \
 	device/google/zumapro/conf/init.efs.16k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc \
 	device/google/zumapro/conf/fstab.efs.from_data:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.efs.from_data
 
-PRODUCT_PACKAGES += copy_efs_files_to_data
 PRODUCT_PACKAGES += fsck.f2fs.vendor
 else
 PRODUCT_COPY_FILES += \
@@ -871,10 +878,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.enable_gl_backpressure=1 \
 	debug.sf.enable_sdr_dimming=1 \
         debug.sf.dim_in_gamma_in_enhanced_screenshots=1
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-	vendor.camera.multicam.enable_p23_multicam=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.use_phase_offsets_as_durations=1
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += debug.sf.late.sf.duration=10500000
