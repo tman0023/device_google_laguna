@@ -243,9 +243,6 @@
         <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
     </string-array>
 
-    <!-- Bytes that the PinnerService will pin for Home app -->
-    <integer name="config_pinnerHomePinBytes">6291456</integer>
-
     <!-- The default intensity level for alarm vibrations. See
          Settings.System.ALARM_VIBRATION_INTENSITY more details on the constant values and
          meanings. -->
@@ -487,12 +484,17 @@
     <!-- The class name to receive the intent for provisioning. -->
     <string name="config_satellite_carrier_roaming_esos_provisioned_class">com.google.android.apps.stargate.registration.RegistrationReceiver_Receiver</string>
 
+    <!-- Whether the device supports disabling satellite while satellite enabling is in progress.
+         -->
+    <bool name="config_support_disable_satellite_while_enable_in_progress">false</bool>
+
     <!-- List of country codes where oem-enabled satellite services are either allowed or disallowed
          by the device. Each country code is a lowercase 2 character ISO-3166-1 alpha-2. -->
     <string-array name="config_oem_enabled_satellite_country_codes">
         <item>US</item>
         <item>PR</item>
         <item>CA</item>
+        <item>AU</item>
         <item>AT</item>
         <item>BE</item>
         <item>BG</item>
@@ -508,6 +510,7 @@
         <item>HU</item>
         <item>IE</item>
         <item>IT</item>
+        <item>LI</item>
         <item>LV</item>
         <item>LT</item>
         <item>LU</item>
@@ -589,5 +592,12 @@
     <integer-array name="config_verizon_satellite_enabled_tagids">
         <item>1001</item>
     </integer-array>
+
+    <!-- Whether to enable APDU sender optimization i.e. a logical channel is opened and
+         kept open for multiple APDU commands within one session.-->
+    <bool name="euicc_optimize_apdu_sender">true</bool>
+
+    <!-- Whether desktop mode is supported on the current device  -->
+    <bool name="config_isDesktopModeSupported">true</bool>
 
 </resources>
