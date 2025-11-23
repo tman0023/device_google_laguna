@@ -40,18 +40,6 @@ package {
 }
 
 genrule {
-    name: "gen_fstab.zuma-hw-encrypt",
-    srcs: [
-        ":fstab.zumapro.common",
-        "fstab.rw.zumapro.f2fs",
-    ],
-    out: ["fstab.zuma"],
-    cmd: "sed -e s/@fileencryption@/fileencryption=:aes-256-hctr2:inlinecrypt_optimized+wrappedkey_v0/" +
-        " -e s/@inlinecrypt@/inlinecrypt/ " +
-        " -e s/@metadata_encryption@/metadata_encryption=:wrappedkey_v0/ $(in) > $(out)",
-}
-
-genrule {
     name: "gen_fstab.zumapro-hw-encrypt",
     srcs: [
         ":fstab.zumapro.common",
@@ -61,18 +49,6 @@ genrule {
     cmd: "sed -e s/@fileencryption@/fileencryption=:aes-256-hctr2:inlinecrypt_optimized+wrappedkey_v0/" +
         " -e s/@inlinecrypt@/inlinecrypt/ " +
         " -e s/@metadata_encryption@/metadata_encryption=:wrappedkey_v0/ $(in) > $(out)",
-}
-
-genrule {
-    name: "gen_fstab.zuma-sw-encrypt",
-    srcs: [
-        ":fstab.zumapro.common",
-        "fstab.rw.zumapro.f2fs",
-    ],
-    out: ["fstab.zuma"],
-    cmd: "sed -e s/@fileencryption@/fileencryption=aes-256-xts:aes-256-hctr2/" +
-        " -e s/@inlinecrypt@// " +
-        " -e s/@metadata_encryption@/metadata_encryption=/ $(in) > $(out)",
 }
 
 genrule {
@@ -88,18 +64,6 @@ genrule {
 }
 
 genrule {
-    name: "gen_fstab.zuma-no-encrypt",
-    srcs: [
-        ":fstab.zumapro.common",
-        "fstab.rw.zumapro.f2fs",
-    ],
-    out: ["fstab.zuma"],
-    cmd: "sed -e s/@fileencryption@//" +
-        " -e s/@inlinecrypt@// " +
-        " -e s/@metadata_encryption@// $(in) > $(out)",
-}
-
-genrule {
     name: "gen_fstab.zumapro-no-encrypt",
     srcs: [
         ":fstab.zumapro.common",
@@ -109,18 +73,6 @@ genrule {
     cmd: "sed -e s/@fileencryption@//" +
         " -e s/@inlinecrypt@// " +
         " -e s/@metadata_encryption@// $(in) > $(out)",
-}
-
-genrule {
-    name: "gen_fstab.zuma-fips",
-    srcs: [
-        ":fstab.zumapro.common",
-        "fstab.rw.zumapro.f2fs",
-    ],
-    out: ["fstab.zuma-fips"],
-    cmd: "sed -e s/@fileencryption@/fileencryption=aes-256-xts/" +
-        " -e s/@inlinecrypt@/inlinecrypt/ " +
-        " -e s/@metadata_encryption@/metadata_encryption=aes-256-xts/ $(in) > $(out)",
 }
 
 genrule {
@@ -136,22 +88,8 @@ genrule {
 }
 
 prebuilt_etc {
-    name: "fstab.zuma",
-    src: ":gen_fstab.zuma-hw-encrypt",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
     name: "fstab.zumapro",
     src: ":gen_fstab.zumapro-hw-encrypt",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
-    name: "fstab.zuma-fips",
-    src: ":gen_fstab.zuma-fips",
     vendor: true,
     vendor_ramdisk_available: true,
 }

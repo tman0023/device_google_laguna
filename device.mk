@@ -168,26 +168,11 @@ include hardware/google/pixel/PixelLogger/PixelLogger.mk
 # modem_ml_svc_sit daemon
 PRODUCT_PACKAGES += modem_ml_svc_sit
 
-# modem ML models configs
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/modem_ml/modem_ml_nnapi_models_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/modem_ml_models.conf \
-	device/google/zumapro/modem_ml/modem_ml_tflite_models_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/modem_ml_tflite_models.conf
-
 # modem logging binary/configs
 PRODUCT_PACKAGES += modem_logging_control
 
 # libeomservice_proxy binary/configs
 PRODUCT_PACKAGES += liboemservice_proxy_default
-
-# modem logging configs
-PRODUCT_PACKAGES += \
-	logging.conf \
-	default.cfg \
-	default.nprf \
-	default_metrics.xml \
-	Pixel_stability.cfg \
-	Pixel_stability.nprf \
-	extensive_logging.conf
 
 # Vendor modem extensive logging default property
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -273,25 +258,8 @@ DEVICE_MATRIX_FILE := \
 	device/google/zumapro/compatibility_matrix.xml
 endif
 
-ifneq (,$(filter aosp_%,$(TARGET_PRODUCT)))
-ifeq ($(PRODUCT_SHIPPING_API_LEVEL),35)
-DEVICE_MANIFEST_FILE += \
-	device/google/zumapro/manifest_media_aosp_202404.xml
-else
-DEVICE_MANIFEST_FILE += \
-	device/google/zumapro/manifest_media_aosp.xml
-endif
-
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/media_codecs_aosp_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml
-else
 DEVICE_MANIFEST_FILE += \
 	device/google/zumapro/manifest_media.xml
-
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/media_codecs_bo_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
-	device/google/zumapro/media_codecs_aosp_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_aosp_c2.xml
-endif
 
 DEVICE_PACKAGE_OVERLAYS += device/google/zumapro/overlay
 
@@ -300,16 +268,6 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 
 # Init files
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.zumapro.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.zumapro.usb.rc \
-	device/google/zumapro/conf/ueventd.zumapro.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
-
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.zumapro.soc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.zumapro.soc.rc \
-	device/google/zumapro/conf/init.zuma.soc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.zuma.soc.rc \
-	device/google/zumapro/conf/init.zumapro.board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.zumapro.board.rc \
-	device/google/zumapro/conf/init.persist.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.persist.rc
-
 ifeq (true,$(filter $(TARGET_BOOTS_16K) $(PRODUCT_16K_DEVELOPER_OPTION),true))
 PRODUCT_COPY_FILES += \
 	device/google/zumapro/conf/init.efs.16k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc \
@@ -323,40 +281,24 @@ endif
 
 # Recovery files
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zumapro.rc \
-	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zuma.rc
+	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zumapro.rc
 
 # Fstab files
 ifeq (true,$(TARGET_BOOTS_16K))
 PRODUCT_SOONG_NAMESPACES += \
         device/google/zumapro/conf/fs-16kb
-else ifeq (ext4,$(TARGET_RW_FILE_SYSTEM_TYPE))
-PRODUCT_SOONG_NAMESPACES += \
-        device/google/zumapro/conf/ext4
 else
 PRODUCT_SOONG_NAMESPACES += \
         device/google/zumapro/conf/f2fs
 endif
 
 PRODUCT_PACKAGES += \
-	fstab.zuma \
 	fstab.zumapro \
-	fstab.zuma.vendor_ramdisk \
 	fstab.zumapro.vendor_ramdisk \
-	fstab.zuma-fips \
 	fstab.zumapro-fips \
-	fstab.zuma-fips.vendor_ramdisk \
 	fstab.zumapro-fips.vendor_ramdisk
 
-PRODUCT_COPY_FILES += \
-	device/google/$(TARGET_BOARD_PLATFORM)/conf/fstab.rw.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist \
-	device/google/$(TARGET_BOARD_PLATFORM)/conf/fstab.ro.modem:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.modem \
-	device/google/$(TARGET_BOARD_PLATFORM)/conf/fstab.rw.efs:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.efs
-
 # Shell scripts
-PRODUCT_PACKAGES += \
-	disable_contaminant_detection.sh
-
 include device/google/gs-common/insmod/insmod.mk
 
 # Insmod config files
@@ -448,9 +390,6 @@ PRODUCT_COPY_FILES += \
 # adpf 16ms update rate
 PRODUCT_PRODUCT_PROPERTIES += \
         vendor.powerhal.adpf.rate=16666666
-
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 -include hardware/google/pixel/power-libperfmgr/aidl/device.mk
 
@@ -617,10 +556,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# WIFI COEX
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/wifi/coex_table.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/coex_table.xml
-
 PRODUCT_PACKAGES += hostapd
 PRODUCT_PACKAGES += wpa_supplicant
 PRODUCT_PACKAGES += wpa_supplicant.conf
@@ -636,9 +571,6 @@ include device/google/gs-common/mediacodec/samsung/mediacodec_samsung.mk
 # for Bigwave C2 Hal
 include device/google/gs-common/mediacodec/bigwave/mediacodec_bigwave.mk
 
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
-
 PRODUCT_PROPERTY_OVERRIDES += \
        debug.c2.use_dmabufheaps=1 \
        media.c2.dmabuf.padding=512 \
@@ -653,11 +585,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.stagefright.c2inputsurface=-1 \
 
 PRODUCT_PROPERTY_OVERRIDES += media.c2.hal.selection=aidl
-
-# 2. OpenMAX IL
-PRODUCT_COPY_FILES += \
-	device/google/zumapro/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-	device/google/zumapro/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -843,14 +770,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 include hardware/google/pixel/HardwareInfo/HardwareInfo.mk
 
 # RIL extension service
-ifeq (,$(filter aosp_%,$(TARGET_PRODUCT)))
 include device/google/gs-common/pixel_ril/ril.mk
-endif
-
-# Telephony satellite geofence data file
-PRODUCT_COPY_FILES += \
-        device/google/zumapro/telephony/sats2.dat:$(TARGET_COPY_OUT_VENDOR)/etc/telephony/sats2.dat \
-        device/google/zumapro/telephony/satellite_access_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/telephony/satellite_access_config.json
 
 # Touch service
 include device/google/gs-common/touch/twoshay/aidl_zuma.mk

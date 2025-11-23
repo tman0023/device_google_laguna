@@ -19,11 +19,3 @@ cc_binary {
     relative_install_path: "dump",
     init_rc: ["dump_power.rc"],
 }
-
-sh_binary {
-    name: "dump_gsa.sh",
-    src: "dump_gsa.sh",
-    vendor: true,
-    sub_dir: "dump",
-}
-

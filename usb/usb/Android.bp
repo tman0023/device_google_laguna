@@ -76,11 +76,3 @@ prebuilt_etc {
     src: "android.hardware.usb-service-i2c6.rc",
     sub_dir: "init",
 }
-
-prebuilt_etc {
-    name: "usb_service_init_rc_i2c11",
-    vendor: true,
-    filename: "android.hardware.usb-service-i2c11.rc",
-    src: "android.hardware.usb-service-i2c11.rc",
-    sub_dir: "init",
-}
