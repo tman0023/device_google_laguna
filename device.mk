@@ -1,5 +1,7 @@
 #
 # SPDX-FileCopyrightText: 2011 The Android Open-Source Project
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-FileCopyrightText: The Calyx Institute
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -230,7 +232,11 @@ endif
 DEVICE_MANIFEST_FILE += \
 	device/google/zumapro/manifest_media.xml
 
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
+    device/google/zumapro/location/device_framework_matrix_product.xml
+
 DEVICE_PACKAGE_OVERLAYS += device/google/zumapro/overlay
+DEVICE_PACKAGE_OVERLAYS += device/google/zumapro/overlay-lineage
 
 # Enforce the Product interface
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -684,3 +690,40 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := true
+
+# AiAi Config
+PRODUCT_COPY_FILES += \
+    device/google/zumapro/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
+
+# Camera
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
+    ro.vendor.camera.extensions.service=com.google.android.apps.camera.services.extensions.service.PixelExtensions
+
+# Experiments
+include device/google/gs-common/performance/experiments/experiments.mk
+
+# Google Assistant
+PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
+
+# Lineage Health
+include hardware/google/pixel/lineage_health/device.mk
+
+$(call soong_config_set,lineage_health,charging_control_supports_deadline,true)
+$(call soong_config_set,lineage_health,charging_control_supports_limit,true)
+$(call soong_config_set,lineage_health,charging_control_supports_toggle,false)
+
+# Linker config
+PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
+    device/google/zumapro/linker.config.json
+
+# Parts
+PRODUCT_PACKAGES += \
+    GoogleParts
+
+# Tethering
+PRODUCT_PACKAGES += \
+    TetheringOverlay
+
+# Touch
+include hardware/google/pixel/touch/device.mk
