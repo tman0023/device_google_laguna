@@ -1,6 +1,8 @@
 type gia, domain;
 type gia_exec, exec_type, file_type, vendor_file_type;
 
+hal_attribute(gia)
+
 hal_client_domain(gia, hal_gia)
 
 hal_server_domain(gia, hal_gia)
@@ -8,8 +10,6 @@ hal_server_domain(gia, hal_gia)
 binder_call(gia, stats_service_server)
 
 binder_use(gia)
-
-hal_attribute(gia)
 
 init_daemon_domain(gia)
 
