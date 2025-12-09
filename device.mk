@@ -205,8 +205,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_SHIPPING_API_LEVEL := $(SHIPPING_API_LEVEL)
 
 # VINTF
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    device/google/zumapro/vintf/vendor_framework_compatibility_matrix.xml
 ifeq ($(PRODUCT_SHIPPING_API_LEVEL),35)
 DEVICE_MANIFEST_FILE += \
     device/google/zumapro/vintf/manifest_202404.xml
