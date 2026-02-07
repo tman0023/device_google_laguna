@@ -3,4 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-include device/google/zumapro/device-common.mk
+include device/google/laguna/device-common.mk

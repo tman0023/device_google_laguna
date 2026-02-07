@@ -46,7 +46,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_SOONG_NAMESPACES += device/google/gs-common/bootctrl/aidl
 
-TARGET_BOARD_PLATFORM := zumapro
+TARGET_BOARD_PLATFORM := laguna
 
 AB_OTA_POSTINSTALL_CONFIG += \
 	RUN_POSTINSTALL_system=true \
@@ -58,7 +58,7 @@ PRODUCT_SOONG_NAMESPACES += \
 	hardware/google/av \
 	hardware/google/interfaces \
 	hardware/google/pixel \
-	device/google/zumapro
+	device/google/laguna
 
 # Set the environment variable to switch the Keymint HAL service to Rust
 TRUSTY_KEYMINT_IMPL := rust
@@ -207,18 +207,18 @@ PRODUCT_SHIPPING_API_LEVEL := $(SHIPPING_API_LEVEL)
 # VINTF
 ifeq ($(PRODUCT_SHIPPING_API_LEVEL),35)
 DEVICE_MANIFEST_FILE += \
-    device/google/zumapro/vintf/manifest_202404.xml
+    device/google/laguna/vintf/manifest_202404.xml
 DEVICE_MATRIX_FILE += \
-    device/google/zumapro/vintf/compatibility_matrix_202404.xml
+    device/google/laguna/vintf/compatibility_matrix_202404.xml
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
-    device/google/zumapro/vintf/device_framework_matrix_product_202404.xml
+    device/google/laguna/vintf/device_framework_matrix_product_202404.xml
 else
 DEVICE_MANIFEST_FILE += \
-    device/google/zumapro/vintf/manifest.xml
+    device/google/laguna/vintf/manifest.xml
 DEVICE_MATRIX_FILE += \
-    device/google/zumapro/vintf/compatibility_matrix.xml
+    device/google/laguna/vintf/compatibility_matrix.xml
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
-    device/google/zumapro/vintf/device_framework_matrix_product.xml
+    device/google/laguna/vintf/device_framework_matrix_product.xml
 endif
 
 # Enforce the Product interface
@@ -228,33 +228,33 @@ PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 # Init files
 ifeq (true,$(filter $(TARGET_BOOTS_16K) $(PRODUCT_16K_DEVELOPER_OPTION),true))
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.efs.16k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc \
-	device/google/zumapro/conf/fstab.efs.from_data:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.efs.from_data
+	device/google/laguna/conf/init.efs.16k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc \
+	device/google/laguna/conf/fstab.efs.from_data:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.efs.from_data
 
 PRODUCT_PACKAGES += fsck.f2fs.vendor
 else
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.efs.4k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc
+	device/google/laguna/conf/init.efs.4k.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.efs.rc
 endif
 
 # Recovery files
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.zumapro.rc
+	device/google/laguna/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.laguna.rc
 
 # Fstab files
 ifeq (true,$(TARGET_BOOTS_16K))
 PRODUCT_SOONG_NAMESPACES += \
-        device/google/zumapro/conf/fs-16kb
+        device/google/laguna/conf/fs-16kb
 else
 PRODUCT_SOONG_NAMESPACES += \
-        device/google/zumapro/conf/f2fs
+        device/google/laguna/conf/f2fs
 endif
 
 PRODUCT_PACKAGES += \
-	fstab.zumapro \
-	fstab.zumapro.vendor_ramdisk \
-	fstab.zumapro-fips \
-	fstab.zumapro-fips.vendor_ramdisk
+	fstab.laguna \
+	fstab.laguna.vendor_ramdisk \
+	fstab.laguna-fips \
+	fstab.laguna-fips.vendor_ramdisk
 
 # Insmod config files
 PRODUCT_COPY_FILES += \
@@ -518,7 +518,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	ro.postinstall.fstab.prefix=/product
 
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/conf/fstab.ro.postinstall:$(TARGET_COPY_OUT_PRODUCT)/etc/fstab.postinstall
+	device/google/laguna/conf/fstab.ro.postinstall:$(TARGET_COPY_OUT_PRODUCT)/etc/fstab.postinstall
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -532,13 +532,13 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
-	device/google/zumapro/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
+	device/google/laguna/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
+	device/google/laguna/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
 	frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
 
 PRODUCT_PACKAGES += \
-	android.hardware.health-service.zumapro \
-	android.hardware.health-service.zumapro_recovery \
+	android.hardware.health-service.laguna \
+	android.hardware.health-service.laguna_recovery \
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -661,7 +661,7 @@ PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := true
 
 # AiAi Config
 PRODUCT_COPY_FILES += \
-    device/google/zumapro/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
+    device/google/laguna/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
 
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
@@ -703,7 +703,7 @@ $(call soong_config_set_bool,lineage_health,charging_control_supports_toggle,fal
 
 # Linker config
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
-    device/google/zumapro/linker.config.json
+    device/google/laguna/linker.config.json
 
 # NFC
 PRODUCT_COPY_FILES += \
@@ -750,18 +750,18 @@ PRODUCT_PACKAGES += \
     TelephonyProviderOverlayProductZumapro
 
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayLineageZumapro \
-    LineageSdkOverlayZumapro \
-    SettingsOverlayZumapro \
-    SimpleDeviceConfigOverlayZumapro
+    FrameworkResOverlayLineageLaguna \
+    LineageSdkOverlayLaguna \
+    SettingsOverlayLaguna \
+    SimpleDeviceConfigOverlayLaguna
 
 # Parts
 PRODUCT_PACKAGES += \
     GoogleParts
 
 # Properties
-TARGET_PRODUCT_PROP += device/google/zumapro/product.prop
-TARGET_SYSTEM_EXT_PROP += device/google/zumapro/system_ext.prop
+TARGET_PRODUCT_PROP += device/google/laguna/product.prop
+TARGET_SYSTEM_EXT_PROP += device/google/laguna/system_ext.prop
 
 # SecureElement
 PRODUCT_COPY_FILES += \

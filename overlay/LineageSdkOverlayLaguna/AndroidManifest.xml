@@ -4,8 +4,8 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.android.settings.overlay.zumapro">
-    <overlay android:targetPackage="com.android.settings"
+          package="lineageos.platform.overlay.laguna">
+    <overlay android:targetPackage="lineageos.platform"
              android:isStatic="true"
              android:priority="0" />
 </manifest>

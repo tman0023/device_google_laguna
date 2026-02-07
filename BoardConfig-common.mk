@@ -10,7 +10,7 @@ include build/make/target/board/BoardConfigPixelCommon.mk
 
 # Include settings for 16k page size kernel if enabled.
 ifneq ($(wildcard $(TARGET_KERNEL_DIR)/16kb/),)
-include device/google/zumapro/BoardConfig-16k-common.mk
+include device/google/laguna/BoardConfig-16k-common.mk
 endif
 
 TARGET_ARCH := arm64
@@ -40,12 +40,12 @@ TARGET_NO_KERNEL := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-TARGET_RECOVERY_WIPE := device/google/zumapro/conf/recovery.wipe
+TARGET_RECOVERY_WIPE := device/google/laguna/conf/recovery.wipe
 
 # This is the fstab file that will be included in the recovery image.  Note that
 # recovery doesn't care about the encryption settings, so it doesn't matter
 # whether we use the normal or the fips fstab here.
-TARGET_RECOVERY_FSTAB_GENRULE := gen_fstab.zumapro-sw-encrypt
+TARGET_RECOVERY_FSTAB_GENRULE := gen_fstab.laguna-sw-encrypt
 
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_UI_MARGIN_HEIGHT := 165
@@ -237,21 +237,21 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/google/pixel-sepolicy/googlebattery \
     hardware/google/pixel-sepolicy/input \
     hardware/google/pixel-sepolicy/powerstats \
-    device/google/zumapro/sepolicy/certificates \
-    device/google/zumapro/sepolicy/recovery \
-    device/google/zumapro/sepolicy/vendor
+    device/google/laguna/sepolicy/certificates \
+    device/google/laguna/sepolicy/recovery \
+    device/google/laguna/sepolicy/vendor
 
 PRODUCT_PRIVATE_SEPOLICY_DIRS += \
-    device/google/zumapro/sepolicy/product/private
+    device/google/laguna/sepolicy/product/private
 
 PRODUCT_PUBLIC_SEPOLICY_DIRS += \
-    device/google/zumapro/sepolicy/product/public
+    device/google/laguna/sepolicy/product/public
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
-    device/google/zumapro/sepolicy/system_ext/private
+    device/google/laguna/sepolicy/system_ext/private
 
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
-    device/google/zumapro/sepolicy/system_ext/public
+    device/google/laguna/sepolicy/system_ext/public
 
 # Battery options
 BOARD_KERNEL_CMDLINE += at24.write_timeout=100
