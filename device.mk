@@ -202,24 +202,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 	ro.opengles.version=196610 \
 	graphics.gpu.profiler.support=true \
 
-PRODUCT_SHIPPING_API_LEVEL := $(SHIPPING_API_LEVEL)
-
-# VINTF
-ifeq ($(PRODUCT_SHIPPING_API_LEVEL),35)
-DEVICE_MANIFEST_FILE += \
-    device/google/laguna/vintf/manifest_202404.xml
-DEVICE_MATRIX_FILE += \
-    device/google/laguna/vintf/compatibility_matrix_202404.xml
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
-    device/google/laguna/vintf/device_framework_matrix_product_202404.xml
-else
-DEVICE_MANIFEST_FILE += \
-    device/google/laguna/vintf/manifest.xml
-DEVICE_MATRIX_FILE += \
-    device/google/laguna/vintf/compatibility_matrix.xml
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
-    device/google/laguna/vintf/device_framework_matrix_product.xml
-endif
+PRODUCT_SHIPPING_API_LEVEL := 36
 
 # Enforce the Product interface
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -777,3 +760,11 @@ PRODUCT_PACKAGES += \
 
 # Touch
 include hardware/google/pixel/touch/device.mk
+
+# VINTF
+DEVICE_MANIFEST_FILE += \
+    device/google/laguna/vintf/manifest.xml
+DEVICE_MATRIX_FILE += \
+    device/google/laguna/vintf/compatibility_matrix.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
+    device/google/laguna/vintf/device_framework_matrix_product.xml
