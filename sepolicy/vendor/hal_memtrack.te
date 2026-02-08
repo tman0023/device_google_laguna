@@ -1,1 +1,2 @@
-r_dir_file(hal_memtrack_default, sysfs_gpu)
+allow hal_memtrack_default proc_gpu_img:dir search;
+allow hal_memtrack_default proc_gpu_img:file { getattr open read };

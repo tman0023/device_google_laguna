@@ -1,12 +1,12 @@
 hal_client_domain(hal_contexthub_default, hal_graphics_allocator)
 
+hal_server_domain(hal_contexthub_default, hal_bluetooth)
+
 binder_call(hal_contexthub_default, hal_gnss_pixel)
 binder_call(hal_contexthub_default, hal_sensors_default)
 binder_call(hal_contexthub_default, hal_wifi_ext)
 
 get_prop(hal_contexthub_default, vendor_aoc_prop)
-
-unix_socket_connect(hal_contexthub_default, chre, chre)
 
 wakelock_use(hal_contexthub_default)
 

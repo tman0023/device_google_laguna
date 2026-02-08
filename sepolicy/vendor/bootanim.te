@@ -1,3 +1,1 @@
-allow bootanim arm_mali_platform_service:service_manager find;
-
-dontaudit bootanim system_data_file:dir search;
+allow bootanim dmabuf_system_secure_heap_device:chr_file r_file_perms;

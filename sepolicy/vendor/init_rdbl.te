@@ -1,0 +1,8 @@
+type init_rdbl, domain;
+type init_rdbl_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(init_rdbl)
+
+allow init_rdbl block_device:dir search;
+allow init_rdbl rdbl_block_device:blk_file rw_file_perms;
+allow init_rdbl vendor_toolbox_exec:file execute_no_trans;

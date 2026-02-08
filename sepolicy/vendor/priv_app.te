@@ -1,3 +1,12 @@
+binder_call(priv_app, hal_plat_security)
+
 allow priv_app edgetpu_app_service:service_manager find;
 allow priv_app edgetpu_device:chr_file { getattr ioctl map read write };
 allow priv_app edgetpu_nnapi_service:service_manager find;
+allow priv_app hal_plat_security_service:service_manager find;
+allow priv_app iif_device:chr_file { ioctl open read write };
+allow priv_app intelligence_data_file:dir r_dir_perms;
+allow priv_app intelligence_data_file:file r_file_perms;
+allow priv_app proc_version:file getattr;
+
+dontaudit priv_app hal_bluetooth_coexistence_service:service_manager find;

@@ -1,0 +1,1 @@
+allow mediaserver proc_vendor_sched:dir search;

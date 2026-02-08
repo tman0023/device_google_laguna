@@ -1,1 +1,1 @@
-get_prop(domain, vendor_arm_runtime_option_prop)
+get_prop(domain, vendor_pixel_gralloc_prop)

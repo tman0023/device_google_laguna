@@ -1,0 +1,11 @@
+pixel_bugreport(dump_pixel_display)
+
+binder_call(dump_pixel_display, hal_graphics_composer_default)
+
+vndbinder_use(dump_pixel_display)
+
+allow dump_pixel_display sysfs_display:dir search;
+allow dump_pixel_display sysfs_display:file r_file_perms;
+allow dump_pixel_display vendor_displaycolor_service:service_manager find;
+allow dump_pixel_display vendor_dumpsys:file execute_no_trans;
+allow dump_pixel_display vendor_shell_exec:file execute_no_trans;

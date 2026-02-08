@@ -2,3 +2,11 @@ binder_call(vendor_rcs_app, rild)
 
 allow vendor_rcs_app hal_exynos_rild_hwservice:hwservice_manager find;
 allow vendor_rcs_app hal_vendor_radio_external_service:service_manager find;
+
+dontaudit vendor_rcs_app appops_service:service_manager find;
+dontaudit vendor_rcs_app connectivity_service:service_manager find;
+dontaudit vendor_rcs_app default_android_service:service_manager find;
+dontaudit vendor_rcs_app display_service:service_manager find;
+dontaudit vendor_rcs_app hal_vendor_radio_external_service:service_manager find;
+dontaudit vendor_rcs_app network_management_service:service_manager find;
+dontaudit vendor_rcs_app user_service:service_manager find;

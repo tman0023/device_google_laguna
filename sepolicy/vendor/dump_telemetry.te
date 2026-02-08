@@ -1,0 +1,8 @@
+pixel_bugreport(dump_telemetry)
+
+allow dump_telemetry radio_vendor_data_file:dir create_dir_perms;
+allow dump_telemetry radio_vendor_data_file:file create_file_perms;
+allow dump_telemetry sysfs_gia_telemetry:dir r_dir_perms;
+allow dump_telemetry sysfs_gia_telemetry:file r_file_perms;
+allow dump_telemetry sysfs_irq:dir r_dir_perms;
+allow dump_telemetry sysfs_irq:file r_file_perms;

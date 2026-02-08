@@ -1,0 +1,6 @@
+type ambience_hub_default, domain;
+type ambience_hub_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(ambience_hub_default, hal_ambience_hub)
+
+init_daemon_domain(ambience_hub_default)

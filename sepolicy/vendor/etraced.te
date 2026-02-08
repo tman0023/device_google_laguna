@@ -1,0 +1,10 @@
+type etraced, domain;
+type etraced_exec, exec_type, file_type, vendor_file_type;
+
+net_domain(etraced)
+
+init_daemon_domain(etraced)
+
+set_prop(etraced, vendor_persist_config_default_prop)
+
+allow etraced radio_device:chr_file rw_file_perms;

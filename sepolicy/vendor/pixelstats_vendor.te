@@ -11,7 +11,6 @@ init_daemon_domain(pixelstats_vendor)
 r_dir_file(pixelstats_vendor, proc_vendor_mm)
 r_dir_file(pixelstats_vendor, sysfs_batteryinfo)
 r_dir_file(pixelstats_vendor, sysfs_display)
-r_dir_file(pixelstats_vendor, sysfs_thermal)
 r_dir_file(pixelstats_vendor, sysfs_vendor_metrics)
 r_dir_file(pixelstats_vendor, sysfs_vendor_mm)
 
@@ -25,7 +24,6 @@ allow pixelstats_vendor kernel:dir search;
 allow pixelstats_vendor kernel:file r_file_perms;
 allow pixelstats_vendor logbuffer_device:chr_file r_file_perms;
 allow pixelstats_vendor mitigation_vendor_data_file:dir search;
-allow pixelstats_vendor mitigation_vendor_data_file:file rw_file_perms;
 allow pixelstats_vendor mnt_vendor_file:dir search;
 allow pixelstats_vendor proc_meminfo:file r_file_perms;
 allow pixelstats_vendor proc_pressure_cpu:file r_file_perms;
@@ -34,6 +32,8 @@ allow pixelstats_vendor proc_pressure_mem:file r_file_perms;
 allow pixelstats_vendor proc_stat:file r_file_perms;
 allow pixelstats_vendor proc_vmstat:file r_file_perms;
 allow pixelstats_vendor self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+allow pixelstats_vendor sscoredump_vendor_data_crashinfo_file:dir r_dir_perms;
+allow pixelstats_vendor sscoredump_vendor_data_crashinfo_file:file r_file_perms;
 allow pixelstats_vendor sysfs_batteryinfo:file w_file_perms;
 allow pixelstats_vendor sysfs_bcl:dir search;
 allow pixelstats_vendor sysfs_bcl:file r_file_perms;
@@ -45,9 +45,6 @@ allow pixelstats_vendor sysfs_fs_f2fs:dir search;
 allow pixelstats_vendor sysfs_fs_f2fs:file rw_file_perms;
 allow pixelstats_vendor sysfs_ion:dir search;
 allow pixelstats_vendor sysfs_ion:file r_file_perms;
-allow pixelstats_vendor sysfs_pca:file rw_file_perms;
-allow pixelstats_vendor sysfs_pcie:dir search;
-allow pixelstats_vendor sysfs_pcie:file rw_file_perms;
 allow pixelstats_vendor sysfs_pixel_stat:dir r_dir_perms;
 allow pixelstats_vendor sysfs_pixel_stat:file r_file_perms;
 allow pixelstats_vendor sysfs_pixelstats:file r_file_perms;

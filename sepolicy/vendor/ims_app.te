@@ -5,19 +5,38 @@ app_domain(vendor_ims_app)
 net_domain(vendor_ims_app)
 
 binder_call(vendor_ims_app, rild)
-binder_call(vendor_ims_app, servicemanager)
-
-get_prop(vendor_ims_app, vendor_imssvc_prop)
 
 set_prop(vendor_ims_app, radio_prop)
+set_prop(vendor_ims_app, vendor_imssvc_prop)
 set_prop(vendor_ims_app, vendor_rild_prop)
 
-allow vendor_ims_app app_api_service:service_manager find;
+allow vendor_ims_app activity_service:service_manager find;
+allow vendor_ims_app activity_task_service:service_manager find;
+allow vendor_ims_app appops_service:service_manager find;
+allow vendor_ims_app audio_service:service_manager find;
 allow vendor_ims_app audioserver_service:service_manager find;
+allow vendor_ims_app autofill_service:service_manager find;
 allow vendor_ims_app cameraserver_service:service_manager find;
+allow vendor_ims_app connectivity_service:service_manager find;
+allow vendor_ims_app content_capture_service:service_manager find;
+allow vendor_ims_app content_service:service_manager find;
+allow vendor_ims_app device_state_service:service_manager find;
+allow vendor_ims_app display_service:service_manager find;
+allow vendor_ims_app fwk_stats_service:service_manager find;
+allow vendor_ims_app gpu_service:service_manager find;
 allow vendor_ims_app hal_exynos_rild_hwservice:hwservice_manager find;
 allow vendor_ims_app hal_vendor_radio_external_service:service_manager find;
-allow vendor_ims_app mediametrics_service:service_manager find;
+allow vendor_ims_app hint_service:service_manager find;
+allow vendor_ims_app location_service:service_manager find;
 allow vendor_ims_app mediaserver_service:service_manager find;
+allow vendor_ims_app netstats_service:service_manager find;
+allow vendor_ims_app network_management_service:service_manager find;
+allow vendor_ims_app notification_service:service_manager find;
+allow vendor_ims_app power_service:service_manager find;
 allow vendor_ims_app radio_service:service_manager find;
-allow vendor_ims_app self:udp_socket create_socket_perms_no_ioctl;
+allow vendor_ims_app registry_service:service_manager find;
+allow vendor_ims_app sensitive_content_protection_service:service_manager find;
+allow vendor_ims_app telecom_service:service_manager find;
+allow vendor_ims_app thermal_service:service_manager find;
+allow vendor_ims_app voiceinteraction_service:service_manager find;
+allow vendor_ims_app wifi_service:service_manager find;

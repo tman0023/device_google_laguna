@@ -1,3 +1,4 @@
 binder_call(pixeldisplayservice_app, hal_graphics_composer_default)
 
 allow pixeldisplayservice_app hal_pixel_display_service:service_manager find;
+allow pixeldisplayservice_app uimode_service:service_manager find;

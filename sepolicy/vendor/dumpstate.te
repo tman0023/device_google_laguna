@@ -1,8 +1,9 @@
 binder_call(dumpstate, aocxd)
 binder_call(dumpstate, battery_mitigation)
 binder_call(dumpstate, flood_control)
-binder_call(dumpstate, hal_wireless_charger)
 binder_call(dumpstate, hal_wlcservice)
+binder_call(dumpstate, rild)
+binder_call(dumpstate, shared_modem_platform)
 binder_call(dumpstate, twoshay)
 
 allow dumpstate hal_battery_mitigation_service:service_manager find;

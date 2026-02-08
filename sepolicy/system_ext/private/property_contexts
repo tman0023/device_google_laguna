@@ -1,3 +1,4 @@
+persist.fingerprint.screenprotector.config u:object_r:fingerprint_sp_prop:s0 exact string
 persist.sys.hdcp_checking u:object_r:usb_control_prop:s0 exact string
 repair_mode.init_completed. u:object_r:repair_mode_init_prop:s0 prefix bool
 telephony.TnNtn.image_switch u:object_r:telephony_modem_prop:s0 exact enum ntn tn

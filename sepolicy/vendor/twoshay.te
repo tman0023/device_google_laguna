@@ -8,6 +8,7 @@ add_service(twoshay, twoshay_file_dump_service)
 add_service(twoshay, twoshay_notification_service)
 
 binder_call(twoshay, grilservice_app)
+binder_call(twoshay, hal_aidl_radio_ext)
 binder_call(twoshay, platform_app)
 binder_call(twoshay, stats_service_server)
 
@@ -15,15 +16,14 @@ binder_use(twoshay)
 
 init_daemon_domain(twoshay)
 
-unix_socket_connect(twoshay, chre, chre)
 unix_socket_connect(twoshay, chre, hal_contexthub_default)
 
 allow twoshay dumpstate:fd use;
 allow twoshay dumpstate:fifo_file write;
 allow twoshay fwk_stats_service:service_manager find;
-allow twoshay self:capability2 block_suspend;
 allow twoshay touch_offload_device:chr_file rw_file_perms;
 allow twoshay twoshay:capability sys_nice;
 
 dontaudit twoshay boot_status_prop:file read;
+dontaudit twoshay self:capability2 block_suspend;
 dontaudit twoshay twoshay:capability dac_override;

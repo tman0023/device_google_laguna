@@ -1,0 +1,32 @@
+type shared_modem_platform, domain;
+type shared_modem_platform_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(shared_modem_platform, hal_shared_modem_platform)
+
+get_prop(shared_modem_platform, vendor_imssvc_prop)
+get_prop(shared_modem_platform, vendor_logger_prop)
+get_prop(shared_modem_platform, vendor_rild_prop)
+
+init_daemon_domain(shared_modem_platform)
+
+perfetto_producer(shared_modem_platform)
+
+set_prop(shared_modem_platform, vendor_modem_prop)
+
+unix_socket_connect(shared_modem_platform, property, traced)
+unix_socket_connect(shared_modem_platform, traced_producer, init)
+
+allow shared_modem_platform dumpstate:fd use;
+allow shared_modem_platform dumpstate:fifo_file write;
+allow shared_modem_platform mnt_vendor_file:dir search;
+allow shared_modem_platform modem_stat_data_file:dir rw_dir_perms;
+allow shared_modem_platform modem_stat_data_file:file create_file_perms;
+allow shared_modem_platform modem_userdata_file:dir rw_dir_perms;
+allow shared_modem_platform modem_userdata_file:file { append create getattr open read setattr unlink write };
+allow shared_modem_platform radio_device:chr_file { ioctl open read write };
+allow shared_modem_platform radio_vendor_data_file:dir rw_dir_perms;
+allow shared_modem_platform radio_vendor_data_file:file create_file_perms;
+allow shared_modem_platform radio_vendor_data_file:sock_file { create unlink write };
+allow shared_modem_platform serial_device:chr_file { ioctl open read write };
+allow shared_modem_platform sysfs_kernel_metrics:file r_file_perms;
+allow shared_modem_platform sysfs_modem:file { getattr open write };

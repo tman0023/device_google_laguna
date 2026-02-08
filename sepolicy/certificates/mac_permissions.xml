@@ -28,9 +28,6 @@
     <signer signature="@PMS" >
         <seinfo value="pms" />
     </signer>
-    <signer signature="@MDS" >
-        <seinfo value="mds" />
-    </signer>
     <signer signature="@EUICCSUPPORTPIXEL" >
         <seinfo value="EuiccSupportPixel" />
     </signer>

@@ -4,5 +4,13 @@ net_domain(vendor_rcs_app)
 
 typeattribute vendor_rcs_app coredomain;
 
-allow vendor_rcs_app app_api_service:service_manager find;
+allow vendor_rcs_app activity_service:service_manager find;
+allow vendor_rcs_app appops_service:service_manager find;
+allow vendor_rcs_app connectivity_service:service_manager find;
+allow vendor_rcs_app content_capture_service:service_manager find;
+allow vendor_rcs_app display_service:service_manager find;
+allow vendor_rcs_app netstats_service:service_manager find;
+allow vendor_rcs_app network_management_service:service_manager find;
 allow vendor_rcs_app radio_service:service_manager find;
+allow vendor_rcs_app registry_service:service_manager find;
+allow vendor_rcs_app user_service:service_manager find;

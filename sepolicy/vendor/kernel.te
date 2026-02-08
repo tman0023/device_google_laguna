@@ -6,7 +6,4 @@ allow kernel vendor_fw_file:dir r_dir_perms;
 allow kernel vendor_fw_file:file r_file_perms;
 allow kernel vendor_fw_file:system firmware_load;
 
-dontaudit kernel kernel:capability net_bind_service;
-dontaudit kernel sepolicy_file:file getattr;
-dontaudit kernel system_bootstrap_lib_file:{ dir file } getattr;
-dontaudit kernel system_dlkm_file:dir getattr;
+dontaudit kernel vendor_charger_debugfs:dir search;
