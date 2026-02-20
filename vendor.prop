@@ -1,1 +1,12 @@
-ro.soc.model=Tensor G4
+# Codec2
+media.c2.remove_rendering_depth=true
+
+# RenderEngine
+debug.renderengine.backend=skiaglthreaded
+
+# SoC
+ro.soc.model=Tensor G5
+
+# SurfaceFlinger
+debug.sf.disable_transparent_region_hint=true
+debug.sf.layer_caching_active_layer_timeout_ms=1000

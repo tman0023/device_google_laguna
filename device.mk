@@ -69,7 +69,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # From system.property
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.telephony.default_network=27 \
+	ro.telephony.default_network=26 \
 	persist.vendor.ril.db_ecc.use.iccid_to_plmn=1 \
 	persist.vendor.ril.db_ecc.id.type=5
 
@@ -137,7 +137,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Carrier configuration default location
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.radio.config.carrier_config_dir=/vendor/firmware/carrierconfig
+	persist.vendor.radio.config.carrier_config_dir=/mnt/vendor/modem_img/images/default/confpack
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.active_modems.max_count=2
@@ -150,11 +150,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
         persist.settings.large_screen_opt_for_dp.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.hdcp_checking=drm-only
-
-# Vendor modem extensive logging default property
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.modem.extensive_logging_enabled=false
+	persist.sys.hdcp_checking=always
 
 # HWUI
 TARGET_USES_VULKAN = true
@@ -168,22 +164,8 @@ PRODUCT_PACKAGES += \
 	libOpenCL
 
 PRODUCT_VENDOR_PROPERTIES += \
-	ro.hardware.egl=mali \
-	ro.hardware.vulkan=mali
-
-# b/293371537 Opt in to RE-Graphite's aconfig-based preview rollout
-PRODUCT_VENDOR_PROPERTIES += debug.renderengine.graphite_preview_optin=true
-
-# b/295257834 Add HDR shaders to SurfaceFlinger's pre-warming cache
-PRODUCT_VENDOR_PROPERTIES += ro.surface_flinger.prime_shader_cache.ultrahdr=1
-
-# Mali Configuration Properties
-PRODUCT_VENDOR_PROPERTIES += \
-	vendor.mali.platform.config=/vendor/etc/mali/platform.config \
-	vendor.mali.debug.config=/vendor/etc/mali/debug.config \
-	vendor.mali.base_protected_max_core_count=4 \
-	vendor.mali.base_protected_tls_max=67108864 \
-	vendor.mali.platform_agt_frequency_khz=24576
+	ro.hardware.egl=powervr \
+	ro.hardware.vulkan=powervr
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
@@ -330,7 +312,6 @@ PRODUCT_PACKAGES += \
 # Enable AAudio MMAP/NOIRQ data path.
 PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
 PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=2
-PRODUCT_PROPERTY_OVERRIDES += aaudio.hw_burst_min_usec=2000
 
 # Set util_clamp_min for s/w spatializer
 PRODUCT_PROPERTY_OVERRIDES += audio.spatializer.effect.util_clamp_min=300
@@ -391,10 +372,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	debug.slsi_platform=1 \
-	debug.hwc.winupdate=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.disable_backpressure=0 \
 	debug.sf.enable_gl_backpressure=1 \
 	debug.sf.enable_sdr_dimming=1 \
@@ -438,9 +415,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.1.brightness.dimming.usage?
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.sf.native_mode=2
 
-# limit DPP downscale ratio
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.hwc.dpp.downscale=4
-
 # Cannot reference variables defined in BoardConfig.mk, uncomment this if
 # BOARD_USES_EXYNOS_AFBC_FEATURE is true
 # set the dss enable status setup
@@ -457,13 +431,11 @@ WIFI_PRIV_CMD_UPDATE_MBO_CELL_STATUS := enabled
 
 # Video
 PRODUCT_PROPERTY_OVERRIDES += \
-       debug.c2.use_dmabufheaps=1 \
        media.c2.dmabuf.padding=512 \
-       debug.stagefright.ccodec_delayed_params=1 \
-       ro.vendor.gpu.dataspace=1
+       debug.stagefright.ccodec_delayed_params=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        debug.stagefright.c2-poolmask=1507328
+        debug.stagefright.c2-poolmask=458752
 
 # Create input surface on the framework side
 PRODUCT_PROPERTY_OVERRIDES += \
