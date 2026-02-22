@@ -306,6 +306,10 @@ PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := true
 PRODUCT_COPY_FILES += \
     device/google/laguna/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
 
+# Android Verified Boot
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
+
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
     ANGLE
@@ -416,6 +420,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.dynamic_sensor_hal
 
+# Telephony
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.carrierlock.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.carrierlock.xml
+
 # Touch
 include hardware/google/pixel/touch/device.mk
 
@@ -426,3 +434,6 @@ DEVICE_MATRIX_FILE += \
     device/google/laguna/vintf/compatibility_matrix.xml
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
     device/google/laguna/vintf/device_framework_matrix_product.xml
+
+# ZRAM writeback
+include hardware/google/pixel/mm/device_gki.mk
