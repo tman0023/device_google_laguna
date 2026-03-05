@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <bool name="polling_disable_allowed">true</bool>
+
+    <!-- Set true if Secure NFC functionality supported for all SKUs -->
+    <bool name="enable_secure_nfc_support">true</bool>
+
+    <!-- Block list that contains the package names which are not desired to get tag intents -->
+    <string-array name="tag_intent_blocked_app_list">
+        <item>com.google.android.tag</item>
+    </string-array>
+</resources>

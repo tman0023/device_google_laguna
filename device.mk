@@ -670,10 +670,11 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    DMServiceOverlayProductZumapro \
+    AmbientCueOverlay \
+    DMServiceOverlayProductLaguna \
     EuiccSupportPixelOverlay \
-    FrameworkResOverlayProductZumapro \
-    FrameworkResOverlayVendorZumapro \
+    FrameworkResOverlayProductLaguna \
+    FrameworkResOverlayVendorLaguna \
     GlanceableHubConfigOverlay \
     GlanceableHubSettingsConfigOverlay \
     GlanceableHubSettingsConfigOverlay2022 \
@@ -683,23 +684,24 @@ PRODUCT_PACKAGES += \
     PixelConfigOverlay2019 \
     PixelConfigOverlay2021 \
     PixelConfigOverlayCommon \
-    PixelConnectivityOverlay2024 \
-    PixelDisplayServiceOverlayProductZumapro \
+    PixelConnectivityOverlay2025 \
+    PixelDisplayServiceOverlayProductLaguna \
     PixelNfcOverlayCommon \
+    PixelNfcOverlayLaguna \
     PixelTetheringOverlay2021 \
-    PixelWifiOverlay2024_M25Zumapro \
-    SafetyRegulatoryInfoOverlayProductZumapro \
-    SettingsGoogleOverlayProductZumapro \
-    SettingsGoogleOverlayVendorZumapro \
-    SettingsProviderOverlayProductZumapro \
-    SettingsProviderOverlayVendorZumapro \
-    ShannonImsOverlayProductZumapro \
-    SystemUIGoogleOverlayProductZumapro \
-    SystemUIGoogleOverlayVendorZumapro \
-    TeleServiceOverlayProductZumapro \
-    TeleServiceOverlayVendorZumapro \
-    TelecomOverlayProductZumapro \
-    TelephonyProviderOverlayProductZumapro
+    PixelWifiOverlay2025Laguna \
+    SafetyRegulatoryInfoOverlayProductLaguna \
+    SettingsGoogleOverlayProductLaguna \
+    SettingsProviderOverlayProductLaguna \
+    SettingsProviderOverlayVendorLaguna \
+    ShannonImsOverlayProductLaguna \
+    SystemUIGoogleOverlayProductLaguna \
+    SystemUIGoogleOverlayVendorLaguna \
+    TeleServiceOverlayProductLaguna \
+    TeleServiceOverlayVendorLaguna \
+    TelecomOverlayProductLaguna \
+    TelephonyProviderOverlayProductLaguna \
+    TerminalOverlay
 
 PRODUCT_PACKAGES += \
     FrameworkResOverlayLineageLaguna \
