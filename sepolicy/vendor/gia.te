@@ -1,8 +1,6 @@
 type gia, domain;
 type gia_exec, exec_type, file_type, vendor_file_type;
 
-hal_attribute(gia)
-
 hal_client_domain(gia, hal_gia)
 
 hal_server_domain(gia, hal_gia)
