@@ -474,23 +474,6 @@
     <!-- The restoring is handled by modem if it is true-->
     <bool name="skip_restoring_network_selection">true</bool>
 
-    <!-- The default list of possible CMF Names|Style|ColorSource. This array can be
-         overridden device-specific resources. A wildcard (fallback) must be supplied.
-         Name   - Read from `ro.boot.hardware.color` sysprop. Fallback (*) required.
-         Styles - frameworks/libs/systemui/monet/src/com/android/systemui/monet/Style.java
-         Color  - `home_wallpaper` (for color extraction) or a hexadecimal int (#FFcc99) -->
-    <string-array name="theming_defaults">
-        <item>WHT|SPRITZ|#CFC6B4</item>
-        <item>BLK|SPRITZ|#404945</item>
-        <item>GRY|SPRITZ|#9A9EAD</item>
-        <item>GRN|TONAL_SPOT|#B6CF90</item>
-        <item>PPL|EXPRESSIVE|#BAC3FF</item>
-        <item>YEL|EXPRESSIVE|#DDEB78</item>
-        <item>BUE|VIBRANT|#6F9BFF</item>
-        <item>RED|VIBRANT|#FF6F7F</item>
-        <item>*|TONAL_SPOT|home_wallpaper</item>
-    </string-array>
-
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
