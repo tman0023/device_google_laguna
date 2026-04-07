@@ -1,0 +1,4 @@
+allow hal_camera_default traced_producer_socket:sock_file write;
+allow gxp_logging traced_producer_socket:sock_file write;
+allow hal_neuralnetworks_darwinn traced_producer_socket:sock_file write;
+allow mediacodec_google traced_producer_socket:sock_file write;
