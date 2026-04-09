@@ -260,3 +260,10 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
 
 # Protected VM firmware
 BOARD_PVMFWIMAGE_PARTITION_SIZE := 0x00100000
+
+# SurfaceFlinger refresh rate
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,120)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
+
+# SurfaceFlinger boost
+SURFACE_FLINGER_BOOST := true
